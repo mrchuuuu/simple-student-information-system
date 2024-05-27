@@ -91,6 +91,7 @@ def new_course_window():
         write_course([course_id_entry.get(), course_name_entry.get()])
         course_window.destroy()
         populate_course_table(get_all_courses()[1:])
+        populate_student_table(get_all_students()[1:])
         message_box("Successfully added a course!")
     
     course_window = tk.Toplevel(window)
@@ -157,6 +158,7 @@ def course_delete_button():
     def delete_command():
         remove_course(course_code)
         populate_course_table(get_all_courses()[1:])
+        populate_student_table(get_all_students()[1:])
         course_window.destroy()
     
     selected_item = course_table.selection()
@@ -460,7 +462,7 @@ student_search.pack(side=RIGHT, fill=X, expand=True, pady=10, padx=30)
 student_search_frame.pack(side=TOP, fill=X, expand=True)
 
 student_table = ttk.Treeview(columns=("id", "name", "gender", "year_level", "course", "status"), show='headings', selectmode=BROWSE, bootstyle=SUCCESS)
-student_table.pack(side=TOP, padx=10, fill=X, expand=True)
+student_table.pack(side=TOP, fill=X, expand=True)
 student_table.heading("id", text="Student ID")
 student_table.heading("name", text="Name")
 student_table.heading("gender", text="Gender")
