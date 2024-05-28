@@ -62,12 +62,13 @@ def get_courses_by_text(search):
 
 window = tk.Tk()
 window.resizable(False, False)
+window.title("Simple Student Information System CSV")
 
 course_buttons = ttk.Frame(window)
 
 def message_box(text):
     message_window = tk.Toplevel(window)
-    text_label = ttk.Label(message_window, text=text, bootstyle=INFO)
+    text_label = ttk.Label(message_window, text = text, bootstyle = INFO)
     text_label.pack(side=TOP)
     ok_button = ttk.Button(message_window, 
                            text = "OK", 
