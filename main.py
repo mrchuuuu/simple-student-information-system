@@ -2,7 +2,7 @@ import tkinter as tk
 from ttkbootstrap import ttk 
 from ttkbootstrap.constants import *
 import csv
-import os 
+import os
 
 if not os.path.exists("./data/course.csv"):
     with open("./data/course.csv", "w", newline = '')as file:
@@ -62,6 +62,7 @@ def get_courses_by_text(search):
 
 window = tk.Tk()
 window.resizable(False, False)
+window.title("Simple Student Information System")
 
 course_buttons = ttk.Frame(window)
 
