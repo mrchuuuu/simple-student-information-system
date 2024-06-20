@@ -62,13 +62,12 @@ def get_courses_by_text(search):
 
 window = tk.Tk()
 window.resizable(False, False)
-window.title("Simple Student Information System CSV")
 
 course_buttons = ttk.Frame(window)
 
 def message_box(text):
     message_window = tk.Toplevel(window)
-    text_label = ttk.Label(message_window, text = text, bootstyle = INFO)
+    text_label = ttk.Label(message_window, text=text, bootstyle=INFO)
     text_label.pack(side=TOP)
     ok_button = ttk.Button(message_window, 
                            text = "OK", 
@@ -189,6 +188,7 @@ def course_delete_button():
     
     def delete_command():
         remove_course(course_code)
+
         populate_course_table(get_all_courses()[1:])
         populate_student_table(get_all_students()[1:])
         course_window.destroy()
@@ -267,12 +267,16 @@ def populate_student_table(rows):
     for course in courses:
         course_codes.append(course[0]) # get all the course codes.
         
+
     for index, student in enumerate(rows):
         if not student[4] in course_codes:
             rows[index].append("NOT ENROLLED")
+            rows[index][4] = "N/A"
         else:
             rows[index].append("ENROLLED")
+        
             
+                    
     for idx, row in enumerate(rows):
         student_table.insert('', values = (row[0], row[1], row[2], row[3], row[4], row[5]), index = idx)
         
